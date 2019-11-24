@@ -1,5 +1,4 @@
 FROM python:3
-RUN mkdir /code
 WORKDIR /code
 ADD sleepwellbot/main.py /code
 ADD sleepwellbot/requirements.txt /code
