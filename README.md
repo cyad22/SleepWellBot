@@ -1,2 +1,2 @@
 # SleepWellBot
-Alarm bot
+Telegram alarm bot
