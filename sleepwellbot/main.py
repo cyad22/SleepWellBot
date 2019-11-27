@@ -13,6 +13,6 @@ def echo_all(message):
     bot.reply_to(message.chat.id, message.text)
 
 for i in range(10):
-    bot.send_message(myChatID, "Hello "+i)
+    bot.send_message(myChatID, "Hello")
 
 bot.polling()
