@@ -8,6 +8,8 @@ def send_welcome(message):
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
+    print(dir(message))
+    print(message)
     bot.reply_to(message, message.text)
 
 bot.polling()
