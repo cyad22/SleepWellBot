@@ -1,6 +1,6 @@
 import telebot
 
-myChatID = "325791759"
+myChatID = 325791759
 bot = telebot.TeleBot("989082753:AAHYNJHhBQqMqjoXAMerC0g-_BfAYziLtAY")
 
 @bot.message_handler(commands=['start', 'help'])
@@ -13,6 +13,6 @@ def echo_all(message):
     bot.reply_to(message.chat.id, message.text)
 
 for i in range(10):
-    bot.send_message(myChatID, "Hello")
+    bot.send_message(myChatID, "Hello"+i)
 
 bot.polling()
