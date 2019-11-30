@@ -1,5 +1,5 @@
 import telebot
-import logger
+import logging
 import time
 import flask
 
