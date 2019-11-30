@@ -24,7 +24,7 @@ def webhook():
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     CHAT_ID = message.chat.id
-    bot.reply_to(message, "Now your this chat used for alarming. Chat id: "+CHAT_ID)
+    bot.reply_to(message, f"Now your this chat used for alarming. Chat id: {CHAT_ID}")
 
 # @bot.message_handler(func=lambda message: True)
 # def echo_all(message):
@@ -35,7 +35,7 @@ bot.remove_webhook()
 
 time.sleep(0.1)
 
-bot.set_webhook(url=URL_BASE+"/")
+bot.set_webhook(url=f"{URL_BASE}/")
 
 app.run(host=LISTEN,
         port=PORT,
