@@ -1,18 +1,42 @@
 import telebot
+import logger
+import time
+import flask
 
-myChatID = 325791759
-bot = telebot.TeleBot("989082753:AAHYNJHhBQqMqjoXAMerC0g-_BfAYziLtAY")
+API_TOKEN = "989082753:AAHYNJHhBQqMqjoXAMerC0g-_BfAYziLtAY"
+CHAT_ID = 325791759
+HOST = '80.211.33.52'
+PORT = 9999
+LISTEN = '0.0.0.0'
+URL_BASE = f"https://{HOST}:{PORT}"
+
+logger = telebot.logger
+telebot.logger.setLevel(logging.INFO)
+
+bot = telebot.TeleBot(API_TOKEN)
+
+@app.route('/', methods=['GET', 'HEAD'])
+def webhook():
+    data = flask.request.query_string
+    bot.process_new_updates([data])
+    return data
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "Howdy, how are you doing?")
+    CHAT_ID = message.chat.id
+    bot.reply_to(message, "Now your this chat used for alarming. Chat id: "+CHAT_ID)
 
-@bot.message_handler(func=lambda message: True)
-def echo_all(message):
-    print(message.chat.id)
-    bot.reply_to(message.chat.id, message.text)
+# @bot.message_handler(func=lambda message: True)
+# def echo_all(message):
+#     print(message.chat.id)
+#     bot.reply_to(message.chat.id, message.text)
 
-for i in range(10):
-    bot.send_message(myChatID, "Hello"+i)
+bot.remove_webhook()
 
-bot.polling()
+time.sleep(0.1)
+
+bot.set_webhook(url=URL_BASE+"/")
+
+app.run(host=LISTEN,
+        port=PORT,
+        debug=True)
