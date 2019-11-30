@@ -35,7 +35,7 @@ def send_welcome(message):
 
 bot.remove_webhook()
 
-time.sleep(0.1)
+time.sleep(3)
 
 bot.set_webhook(url=f"{URL_BASE}/")
 
