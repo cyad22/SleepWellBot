@@ -37,8 +37,8 @@ bot.remove_webhook()
 
 time.sleep(0.1)
 
-bot.set_webhook(url=f"{URL_BASE}/")
+bot.set_webhook(url=f"{URL_BASE}/")x
 
-app.run(host=LISTEN,
+app.run(host=HOST,
         port=PORT,
         debug=True)
