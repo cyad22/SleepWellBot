@@ -17,6 +17,10 @@ telebot.logger.setLevel(logging.INFO)
 
 bot = telebot.TeleBot(API_TOKEN)
 
+@app.route('/info', methods=['GET'])
+def show_info():
+    return "Server is active"
+
 @app.route('/', methods=['GET', 'HEAD'])
 def webhook():
     data = flask.request.query_string
