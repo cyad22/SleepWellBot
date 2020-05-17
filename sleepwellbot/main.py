@@ -17,11 +17,11 @@ telebot.logger.setLevel(logging.INFO)
 
 bot = telebot.TeleBot(API_TOKEN)
 
-@app.route('/', methods=['GET', 'HEAD'])
-def webhook():
-    data = flask.request.query_string
-    bot.process_new_updates([data])
-    return data
+# @app.route('/', methods=['GET', 'HEAD'])
+# def webhook():
+#     data = flask.request.query_string
+#     bot.process_new_updates([data])
+#     return data
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
