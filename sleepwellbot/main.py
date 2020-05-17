@@ -17,7 +17,8 @@ bot = telebot.TeleBot(API_TOKEN)
 
 @app.route('/test', methods=['GET'])
 def test_hook():
-    bot.process_new_updates(["Test"])
+    upd = telebot.types.Update.de_json({"test":"done"})
+    bot.process_new_updates([upd])
     return "Done"
 
 @bot.message_handler(commands=['start', 'help'])
