@@ -11,12 +11,14 @@ HOST = '80.211.33.52'
 PORT = 80
 LISTEN = '0.0.0.0'
 URL_BASE = f"https://{HOST}:{PORT}"
+CHAT_ID = 325791759
 
 bot = telebot.TeleBot(API_TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-	bot.reply_to(message, "Howdy, how are you doing?")
+    CHAT_ID = message.chat.id
+    bot.reply_to(message, f"Now your this chat used for alarming. Chat id: {CHAT_ID}")
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
