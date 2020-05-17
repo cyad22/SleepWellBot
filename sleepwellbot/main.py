@@ -5,8 +5,8 @@ import flask
 
 app = flask.Flask("SleepWellBot")
 
-API_TOKEN = "989082753:AAHYNJHhBQqMqjoXAMerC0g-_BfAYziLtAY"
-CHAT_ID = 325791759
+API_TOKEN = "989082753:AAHTQctnhWRqUVtGo3f1kyKla8rC1S7d73Y"
+# CHAT_ID = 325791759
 HOST = '80.211.33.52'
 PORT = 80
 LISTEN = '0.0.0.0'
@@ -33,11 +33,11 @@ def send_welcome(message):
 #     print(message.chat.id)
 #     bot.reply_to(message.chat.id, message.text)
 
-bot.remove_webhook()
+# bot.remove_webhook()
 
 time.sleep(3)
 
-bot.set_webhook(url=f"{URL_BASE}/")
+# bot.set_webhook(url=f"{URL_BASE}/")
 
 app.run(host=LISTEN,
         port=PORT,
