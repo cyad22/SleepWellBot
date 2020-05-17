@@ -15,6 +15,11 @@ CHAT_ID = 325791759
 
 bot = telebot.TeleBot(API_TOKEN)
 
+@app.route('/test', methods=['GET'])
+def test_hook():
+    bot.process_new_updates(["Test"])
+    return "Done"
+
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     CHAT_ID = message.chat.id
