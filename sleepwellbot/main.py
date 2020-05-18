@@ -15,18 +15,14 @@ CHAT_ID = 325791759
 
 bot = telebot.TeleBot(API_TOKEN)
 
-done = 'none'
-
 @app.route('/test', methods=['GET'])
 def test_hook():
-    global done
-    done = 'yes'
     return "Done"
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     CHAT_ID = message.chat.id
-    bot.reply_to(message, f"Now your this chat used for alarming. Chat id: {CHAT_ID}, {done}")
+    bot.reply_to(message, f"Now your this chat used for alarming. Chat id: {CHAT_ID}")
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
